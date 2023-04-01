@@ -24,6 +24,7 @@ export class BCompComponent
     AfterViewInit,
     AfterViewChecked
 {
+
   cInputValue = 'cInput';
   ngOnChanges() {
     console.log(`b-comp.component.ts ~ ngOnChanges`);
@@ -54,6 +55,6 @@ export class BCompComponent
   }
 
   triggerChangeDetection() {
-    this.cInputValue = 'cInput - changed';
+    this.cInputValue = `cInput - changed @${new Date()}`;
   }
 }

@@ -25,6 +25,7 @@ export class CCompComponent
     AfterViewInit,
     AfterViewChecked
 {
+
   #cInput = '';
   @Input('cInput')
   set cInput(value) {
