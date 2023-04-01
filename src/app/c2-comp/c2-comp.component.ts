@@ -45,4 +45,7 @@ export class C2CompComponent {
   ngAfterViewInit() {
     console.log(`c2-comp.component ~ ngAfterViewInit`);
   }
+  triggerChangeDetection() {
+    console.log(`🚀 ~ C2CompComponent ~ triggerChangeDetection`);
+  }
 }
