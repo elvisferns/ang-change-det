@@ -3,7 +3,7 @@
   <span>{{ changeDetectCSS() }}</span>
   <div style="padding: 5px 0">Input value - {{ cInput }}</div>
   <div style="padding: 5px 0">local value: {{ localValue }}</div>
-  <div style="padding: 5px 0">fake Data value: {{ dataValue }}</div>
+  <div style="padding: 5px 0">Observable value: {{ fakeDataService.observableValue | async }}</div>
   <div>
     <button type="button" (click)="triggerChangeDetection()">
       Trigger local change

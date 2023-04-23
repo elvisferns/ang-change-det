@@ -35,9 +35,9 @@ export class CCompComponent
   @ViewChild('main', { static: true }) container: ElementRef | undefined;
 
   constructor(private ngZone: NgZone, public fakeDataService: FakeDataService) {
-    fakeDataService.observableValue.subscribe((value) => {
-      this.dataValue = value;
-    });
+    // fakeDataService.observableValue.subscribe((value) => {
+    //   this.dataValue = value;
+    // });
   }
 
   ngOnChanges() {
