@@ -1,59 +1,58 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
   AfterViewChecked,
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   DoCheck,
+  ElementRef,
+  Input,
+  NgZone,
   OnChanges,
-  OnInit,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
   selector: 'app-b-comp',
   templateUrl: './b-comp.component.html',
   styleUrls: ['./b-comp.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BCompComponent
-  implements
-    OnInit,
-    OnChanges,
-    DoCheck,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked
+  implements OnChanges, DoCheck, AfterViewInit, AfterViewChecked
 {
   cInputValue = 'cInput';
-  ngOnChanges() {
-    console.log(`b-comp.component.ts ~ ngOnChanges`);
-  }
+  @Input() title: string = '';
+  @Input() inputData: string = '';
+  @ViewChild('main', { static: true }) container: ElementRef | undefined;
 
-  ngOnInit() {
-    console.log(`b-comp.component.ts ~ ngOnInit`);
+  constructor(private ngZone: NgZone) {}
+
+  ngOnChanges() {
+    // console.log(`b-comp.component.ts ~ ngOnChanges`);
   }
 
   ngDoCheck() {
     console.log(`b-comp.component ~ ngDoCheck`);
   }
 
-  ngAfterContentChecked() {
-    console.log(`b-comp.component ~ ngAfterContentChecked`);
-  }
-
-  ngAfterContentInit() {
-    console.log(`b-comp.component ~ ngAfterContentInit`);
+  changeDetectCSS() {
+    this.container?.nativeElement.classList.add('changed');
+    this.ngZone.runOutsideAngular(() =>
+      setTimeout(() => {
+        this.container?.nativeElement.classList.remove('changed');
+      }, 500)
+    );
   }
 
   ngAfterViewChecked() {
-    console.log(`b-comp.component ~ ngAfterViewChecked`);
+    // console.log(`b-comp.component ~ ngAfterViewChecked`);
   }
 
   ngAfterViewInit() {
-    console.log(`b-comp.component ~ ngAfterViewInit`);
+    // console.log(`b-comp.component ~ ngAfterViewInit`);
   }
 
   triggerChangeDetection() {
-    this.cInputValue = 'cInput - changed';
+    this.cInputValue = `cInput - changed @${(new Date()).toLocaleString()}`;
   }
 }

@@ -7,16 +7,9 @@ import { BCompComponent } from './b-comp/b-comp.component';
 import { CCompComponent } from './c-comp/c-comp.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ACompComponent,
-    BCompComponent,
-    CCompComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, ACompComponent, BCompComponent, CCompComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

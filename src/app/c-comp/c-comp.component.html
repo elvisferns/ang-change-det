@@ -1,2 +1,12 @@
-<p>c-comp</p>
-<span> cInput - {{cInput}}</span>
+<section #main class="main">
+  <h4>c-comp</h4>
+  <span>{{ changeDetectCSS() }}</span>
+  <div style="padding: 5px 0">Input value - {{ cInput }}</div>
+  <div style="padding: 5px 0">local value: {{ localValue }}</div>
+  <div style="padding: 5px 0">fake Data value: {{ dataValue }}</div>
+  <div>
+    <button type="button" (click)="triggerChangeDetection()">
+      Trigger local change
+    </button>
+  </div>
+</section>

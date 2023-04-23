@@ -1,5 +1,15 @@
-<p>b-comp</p>
-<div>
-  <button type="button" (click)="triggerChangeDetection()">B - Trigger Change</button>
-</div>
-<app-c-comp [cInput]="cInputValue"></app-c-comp>
+<section #main class="main">
+  <span>{{ changeDetectCSS() }}</span>
+  <h3>{{ title }}</h3>
+  <div>{{ inputData }}</div>
+  <div style="margin-top: 10px">
+    <button
+      style="margin-right: 10px"
+      type="button"
+      (click)="triggerChangeDetection()"
+    >
+      Change C-Input value
+    </button>
+  </div>
+  <app-c-comp [cInput]="cInputValue"></app-c-comp>
+</section>

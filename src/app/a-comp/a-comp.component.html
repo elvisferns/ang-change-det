@@ -1,3 +1,10 @@
-<p>a-comp</p>
-<app-b-comp></app-b-comp>
-
+<!-- <h1>a-comp</h1> -->
+<div style="margin-bottom: 10px">
+  <button style="margin-right: 10px" type="button" (click)="updateInputValueForB1()">Trigger Change - B1</button>
+  <button style="margin-right: 10px" type="button" (click)="updateInputValueForB2()">Trigger Change - B2</button>
+  <button style="margin-right: 10px" type="button" (click)="updateObservableValue()">Trigger Data Observable change</button>
+</div>
+<app-b-comp title="b-comp1" [inputData]="b1InputData">
+</app-b-comp>
+<app-b-comp title="b-comp2" [inputData]="b2InputData">
+</app-b-comp>
